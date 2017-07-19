@@ -12,6 +12,16 @@ $result = mysqli_query($conn, $sql);
 	<body>
 	
 	<?php
+	function validate($lName){
+		if (strlen($lName) > 0){
+			return true;
+			} else {
+			return false;
+			}
+	
+	}
+	
+if (validate($lName)){
 
 if (mysqli_num_rows($result) > 0) {
 
@@ -28,8 +38,11 @@ echo "</table>";
 	echo "0 results";
 }
 
-mysqli_close($conn);
-?>
+} else {
+echo "Invalid Input!!!";
+}
+
+mysqli_close($conn);?>
 	</body>
 </html>
 
